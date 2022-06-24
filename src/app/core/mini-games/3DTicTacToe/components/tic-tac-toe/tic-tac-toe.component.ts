@@ -106,7 +106,7 @@ export class TicTacToeComponent implements OnInit {
       this.ticTacToe.onWin(one);
     } else if (two == five && two == eight && two != 0) {
       this.ticTacToe.onWin(two);
-    } else if (zero == four && one == eight && zero != 0) {
+    } else if (zero == four && zero == eight && zero != 0) {
       this.ticTacToe.onWin(zero);
     } else if (two == four && two == six && two != 0) {
       this.ticTacToe.onWin(two);
