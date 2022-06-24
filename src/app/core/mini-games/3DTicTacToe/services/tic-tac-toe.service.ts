@@ -3,6 +3,8 @@ import { BehaviorSubject } from 'rxjs';
 import { Charackter } from '../interfaces/charackter';
 import { Player } from '../interfaces/player';
 import { CharackterSize, GameColor, GameIcon } from '../interfaces/tic-tac-toe';
+import { MatDialog } from '@angular/material/dialog';
+import { WinnerDialogComponent } from '../components/winner-dialog/winner-dialog.component';
 
 @Injectable({
 	providedIn: 'root'
@@ -14,7 +16,7 @@ export class TicTacToeService {
     private _board: BehaviorSubject<Charackter[]> = new BehaviorSubject<Charackter[]>([]);
     private _selectedCharackter: BehaviorSubject<Charackter> = new BehaviorSubject<Charackter>({id: '', icon: '', size: '', color: '', available: true});
 
-    constructor() {
+    constructor(private dialog: MatDialog) {
         
     }
 
@@ -124,6 +126,11 @@ export class TicTacToeService {
         this.setSelectedCharackter({id: '', icon: '', size: '', color: '', available: true});
         this.setBoard(board);
         this.setTurn(1);
-        
+    }
+
+    onWin(winner: number) {
+        let dialogRef = this.dialog.open(WinnerDialogComponent);
+        let instance = dialogRef.componentInstance;
+        instance.winner = winner; 
     }
 }
