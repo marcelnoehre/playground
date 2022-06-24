@@ -9,13 +9,10 @@ import { Category } from '../../interfaces/category';
 export class CategoryComponent implements OnInit {
   @Input() category!: Category;
 
+
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  redirect() {
-    document.location.href = this.category.route;
   }
 
 }
