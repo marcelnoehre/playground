@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Category } from '../../interfaces/category';
 
 @Component({
   selector: 'app-three-dimensional-css',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./three-dimensional-css.component.scss']
 })
 export class ThreeDimensionalCssComponent implements OnInit {
+  categories: Category[] = []; 
 
   constructor() { }
 

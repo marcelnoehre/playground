@@ -3,14 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GeneralOverviewComponent } from './components/overview/general-overview/general-overview.component';
-import { ThreeDimensionalCssComponent } from './components/overview/three-dimensional-css/three-dimensional-css.component';
+import { GeneralOverviewComponent } from './core/overview/components/general-overview/general-overview.component';
+import { CategoryComponent } from './core/overview/components/category/category.component';
+import { ThreeDimensionalCssComponent } from './core/overview/components/three-dimensional-css/three-dimensional-css.component';
+import { MiniGamesComponent } from './core/overview/components/mini-games/mini-games.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GeneralOverviewComponent,
-    ThreeDimensionalCssComponent
+    CategoryComponent,
+    ThreeDimensionalCssComponent,
+    MiniGamesComponent
   ],
   imports: [
     BrowserModule,
