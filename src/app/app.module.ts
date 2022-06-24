@@ -7,6 +7,7 @@ import { GeneralOverviewComponent } from './core/overview/components/general-ove
 import { CategoryComponent } from './core/overview/components/category/category.component';
 import { ThreeDimensionalCssComponent } from './core/overview/components/three-dimensional-css/three-dimensional-css.component';
 import { MiniGamesComponent } from './core/overview/components/mini-games/mini-games.component';
+import { TicTacToeComponent } from './core/mini-games/3DTicTacToe/components/tic-tac-toe/tic-tac-toe.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MiniGamesComponent } from './core/overview/components/mini-games/mini-g
     GeneralOverviewComponent,
     CategoryComponent,
     ThreeDimensionalCssComponent,
-    MiniGamesComponent
+    MiniGamesComponent,
+    TicTacToeComponent
   ],
   imports: [
     BrowserModule,

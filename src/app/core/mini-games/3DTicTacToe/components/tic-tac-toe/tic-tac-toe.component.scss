@@ -1,0 +1,80 @@
+.container {
+    height: 100vh;
+    width: 100vw;
+    background-color: #1C1C1C;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.back {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2vh;
+    font-size: 5vh;
+}
+
+.player-1,
+.player-2 {
+    height: 20vh;
+    width: 90vw;
+    display: flex;
+    justify-content: space-around;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+.turn {
+    background-color: lightgoldenrodyellow;
+}
+
+.charackter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.blocked {
+    color: grey;
+}
+
+.selected {
+    color: green !important;
+}
+
+.board {
+    height: calc(60vh - 4px);
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+.inner-board {
+    align-self: center;
+    width: calc(58vh - 4px);
+    height: calc(58vh - 4px);
+}
+
+.row {
+    height: 33.33%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.field {
+    height: 100%;
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    vertical-align: middle;
+    border: 1px solid white;
+}

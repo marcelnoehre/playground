@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="back">
+        <a class="fa fa-times" routerLink="/mini-games"></a>
+    </div>
+    <div class="player-1" [style]="'color: ' + player1.color" [ngClass]="turn == 1 ? 'turn' : ''">
+        <div *ngFor="let charackter of player1.charackters index as i" class="charackter" [ngClass]="charackter.available? 'available' : 'not-available'">
+            <i class="{{charackter.icon}}" [style]="'font-size: ' + charackter.size" [ngClass]="selected.player == 1 && selected.selected == i? 'selected' : ''"></i>
+        </div>
+    </div>
+    <div class="board">
+        <div class="inner-board">
+            <div class="row">
+                <div class="field" (click)="placeCharackter(0)" [style]="'color: ' + board[0].color">
+                    <i *ngIf="board[0].icon != ''" class="board[0].icon" [style]="'font-size: ' + board[0].size"></i>
+                </div>
+                <div class="field" (click)="placeCharackter(1)" [style]="'color: ' + board[1].color">
+                    <i *ngIf="board[1].icon != ''" class="board[1].icon" [style]="'font-size: ' + board[1].size"></i>
+                </div>
+                <div class="field" (click)="placeCharackter(2)" [style]="'color: ' + board[2].color">
+                    <i *ngIf="board[2].icon != ''" class="board[2].icon" [style]="'font-size: ' + board[2].size"></i>
+                </div>
+            </div>
+            <div class="row">
+                <div class="field" (click)="placeCharackter(3)" [style]="'color: ' + board[3].color">
+                    <i *ngIf="board[3].icon != ''" class="board[3].icon" [style]="'font-size: ' + board[3].size"></i>
+                </div>
+                <div class="field" (click)="placeCharackter(4)" [style]="'color: ' + board[4].color">
+                    <i *ngIf="board[4].icon != ''" class="board[4].icon" [style]="'font-size: ' + board[4].size"></i>
+                </div>
+                <div class="field" (click)="placeCharackter(5)" [style]="'color: ' + board[5].color">
+                    <i *ngIf="board[5].icon != ''" class="board[5].icon" [style]="'font-size: ' + board[5].size"></i>
+                </div>
+            </div>
+            <div class="row">
+                <div class="field" (click)="placeCharackter(6)" [style]="'color: ' + board[6].color">
+                    <i *ngIf="board[6].icon != ''" class="board[6].icon" [style]="'font-size: ' + board[6].size"></i>
+                </div>
+                <div class="field" (click)="placeCharackter(7)" [style]="'color: ' + board[7].color">
+                    <i *ngIf="board[7].icon != ''" class="board[7].icon" [style]="'font-size: ' + board[7].size"></i>
+                </div>
+                <div class="field" (click)="placeCharackter(8)" [style]="'color: ' + board[8].color">
+                    <i *ngIf="board[8].icon != ''" class="board[8].icon" [style]="'font-size: ' + board[8].size"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="player-2 " [style]=" 'color: ' + player2.color " [ngClass]="turn == 2 ? 'turn' : ''">
+        <div *ngFor="let charackter of player2.charackters " class="charackter " [ngClass]="charackter.available? '' : 'blocked' ">
+            <i class="{{charackter.icon}} " [style]=" 'font-size: ' + charackter.size "></i>
+        </div>
+    </div>
+</div>
