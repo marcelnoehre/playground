@@ -15,7 +15,7 @@ export class CategoryComponent implements OnInit {
   }
 
   redirect() {
-    document.location.href=this.category.route
+    document.location.href = this.category.route;
   }
 
 }
