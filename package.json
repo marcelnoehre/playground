@@ -7,7 +7,7 @@
         "build": "ng build",
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
-        "docs": "ng build --output-path docs --base-href  https://marcelnoehre.github.io/playground"
+        "docs": "ng build --output-path docs --base-href  https://marcelnoehre.github.io/playground/"
     },
     "private": true,
     "dependencies": {
