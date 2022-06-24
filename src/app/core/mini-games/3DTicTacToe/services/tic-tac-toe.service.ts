@@ -12,7 +12,7 @@ export class TicTacToeService {
     private _player2: BehaviorSubject<Player> = new BehaviorSubject<Player>({color: GameColor.player2, charackters: []});
     private _turn: BehaviorSubject<number> = new BehaviorSubject<number>(1); 
     private _board: BehaviorSubject<Charackter[]> = new BehaviorSubject<Charackter[]>([]);
-    private _selectedCharackter: BehaviorSubject<Charackter> = new BehaviorSubject<Charackter>({icon: '', size: '', color: '', available: true});
+    private _selectedCharackter: BehaviorSubject<Charackter> = new BehaviorSubject<Charackter>({id: '', icon: '', size: '', color: '', available: true});
 
     constructor() {
         
@@ -61,60 +61,58 @@ export class TicTacToeService {
     startGame() {
         let charackters1: Charackter[] = [];
         let charackters2: Charackter[] = [];
-        for(let i = 0; i < 3; i++) {
-            for(let j = 0; j < 3; j++) {
-                switch (i) {
-                    case 0: {
-                        charackters1.push({
-                            icon: GameIcon.player1, 
-                            size: CharackterSize.big, 
-                            color: GameColor.player1,
-                            available: true
-                        });
-                        charackters2.push({
-                            icon: GameIcon.player2, 
-                            size: CharackterSize.big, 
-                            color: GameColor.player2,
-                            available: true
-                        });
-                        break;
-                    } case 1: {
-                        charackters1.push({
-                            icon: GameIcon.player1, 
-                            size: CharackterSize.middle, 
-                            color: GameColor.player1,
-                            available: true
-                        });
-                        charackters2.push({
-                            icon: GameIcon.player2, 
-                            size: CharackterSize.middle, 
-                            color: GameColor.player2,
-                            available: true
-                        });
-                        break;
-                    } case 2: {
-                        charackters1.push({
-                            icon: GameIcon.player1, 
-                            size: CharackterSize.small, 
-                            color: GameColor.player1,
-                            available: true
-                        });
-                        charackters2.push({
-                            icon: GameIcon.player2, 
-                            size: CharackterSize.small, 
-                            color: GameColor.player2,
-                            available: true
-                        });
-                        break;
-                    } default: {
-                        break;
-                    }
-                }
+        for(let i = 0; i < 9; i++) {
+            if(i < 3) {
+                charackters1.push({
+                    id: '' + 1 + '-' + i,
+                    icon: GameIcon.player1, 
+                    size: CharackterSize.small, 
+                    color: GameColor.player1,
+                    available: true
+                });
+                charackters2.push({
+                    id: '' + 2 + '-' + i,
+                    icon: GameIcon.player2, 
+                    size: CharackterSize.small, 
+                    color: GameColor.player2,
+                    available: true
+                });
+            } else if(i > 5) {
+                charackters1.push({
+                    id: '' + 1 + '-' + i,
+                    icon: GameIcon.player1, 
+                    size: CharackterSize.big, 
+                    color: GameColor.player1,
+                    available: true
+                });
+                charackters2.push({
+                    id: '' + 2 + '-' + i,
+                    icon: GameIcon.player2, 
+                    size: CharackterSize.big, 
+                    color: GameColor.player2,
+                    available: true
+                });
+            } else {
+                charackters1.push({
+                    id: '' + 1 + '-' + i,
+                    icon: GameIcon.player1, 
+                    size: CharackterSize.middle, 
+                    color: GameColor.player1,
+                    available: true
+                });
+                charackters2.push({
+                    id: '' + 2 + '-' + i,
+                    icon: GameIcon.player2, 
+                    size: CharackterSize.middle, 
+                    color: GameColor.player2,
+                    available: true
+                });
             }
         }
         let board = [];
         for(let i = 0; i < 9; i++) {
             board.push({
+                id: '',
                 icon: '', 
                 size: '',
                 color: '',
@@ -123,7 +121,7 @@ export class TicTacToeService {
         }
         this.setPlayer1({color: GameColor.player1, charackters: charackters1});        
         this.setPlayer2({color: GameColor.player2, charackters: charackters2});
-        this.setSelectedCharackter({icon: '', size: '', color: '', available: true});
+        this.setSelectedCharackter({id: '', icon: '', size: '', color: '', available: true});
         this.setBoard(board);
         this.setTurn(1);
         

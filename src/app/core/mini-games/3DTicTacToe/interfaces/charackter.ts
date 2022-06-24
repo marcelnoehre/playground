@@ -1,5 +1,6 @@
 export interface Charackter {
-    icon: string, 
+    id: string
+    icon: string,
     size: string,
     color: string,
     available: boolean
