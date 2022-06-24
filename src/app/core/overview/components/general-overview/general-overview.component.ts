@@ -13,13 +13,13 @@ export class GeneralOverviewComponent implements OnInit {
       header: '3D-CSS',
       icon: 'fa fa-cube',
       color: Color.lila,
-      route: '/3d-css'
+      route: 'playground/3d-css/'
     },
     {
       header: 'Mini-Games',
       icon: 'fa fa-gamepad',
       color: Color.orange,
-      route: 'mini-games'
+      route: 'playground/mini-games/'
     }
   ]; 
 
