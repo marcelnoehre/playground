@@ -18,6 +18,10 @@ a {
     font-size: 5vh;
 }
 
+.back-dark>a {
+    color: black !important;
+}
+
 .player-1,
 .player-2 {
     height: 20vh;
@@ -33,6 +37,13 @@ a {
 }
 
 .charackter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.charackter>i {
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -58,8 +69,8 @@ a {
 
 .inner-board {
     align-self: center;
-    width: calc(58vh - 4px);
-    height: calc(58vh - 4px);
+    width: calc(98vw - 4px);
+    height: calc(98vw - 4px);
 }
 
 .row {
@@ -79,4 +90,23 @@ a {
 
 .field>i {
     align-self: center;
+}
+
+@media (min-width: 60vh) {
+    .board {
+        height: calc(60vh - 4px);
+        width: 100vw;
+    }
+    .inner-board {
+        width: calc(58vh - 4px);
+        height: calc(58vh - 4px);
+    }
+    .row {
+        height: 33.33%;
+        width: 100%;
+    }
+    .field {
+        height: 100%;
+        width: 33.33%;
+    }
 }

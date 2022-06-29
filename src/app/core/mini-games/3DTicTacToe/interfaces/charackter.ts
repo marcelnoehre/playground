@@ -3,5 +3,6 @@ export interface Charackter {
     icon: string,
     size: string,
     color: string,
-    available: boolean
+    available: boolean,  
+    cssSize: string
 }

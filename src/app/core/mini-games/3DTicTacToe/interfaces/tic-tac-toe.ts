@@ -9,7 +9,13 @@ export enum GameColor {
 }
 
 export enum CharackterSize {
-    small = '3vw',
-    middle = '5vw',
-    big = '8vw'
+    small = 'SMALL',
+    middle = 'MIDDLE',
+    big = 'BIG'
+}
+
+export enum iconSize {
+    small = 'calc(20px + (40 - 20) * ((100vw - 320px) / (1600 - 320)))',
+    middle = 'calc(35px + (70 - 35) * ((100vw - 320px) / (1600 - 320)))',
+    big = 'calc(50px + (100 - 50) * ((100vw - 320px) / (1600 - 320)))'
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Charackter } from '../interfaces/charackter';
 import { Player } from '../interfaces/player';
-import { CharackterSize, GameColor, GameIcon } from '../interfaces/tic-tac-toe';
+import { CharackterSize, GameColor, GameIcon, iconSize } from '../interfaces/tic-tac-toe';
 import { MatDialog } from '@angular/material/dialog';
 import { WinnerDialogComponent } from '../components/winner-dialog/winner-dialog.component';
 
@@ -14,7 +14,8 @@ export class TicTacToeService {
     private _player2: BehaviorSubject<Player> = new BehaviorSubject<Player>({color: GameColor.player2, charackters: []});
     private _turn: BehaviorSubject<number> = new BehaviorSubject<number>(1); 
     private _board: BehaviorSubject<Charackter[]> = new BehaviorSubject<Charackter[]>([]);
-    private _selectedCharackter: BehaviorSubject<Charackter> = new BehaviorSubject<Charackter>({id: '', icon: '', size: '', color: '', available: true});
+    private _placedCounter: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+    private _selectedCharackter: BehaviorSubject<Charackter> = new BehaviorSubject<Charackter>({id: '', icon: '', size: '', color: '', available: true, cssSize: ''});
 
     constructor(private dialog: MatDialog) {
         
@@ -34,6 +35,10 @@ export class TicTacToeService {
 
     setBoard(board: Charackter[]) {
         this._board.next(board);
+    }
+
+    setPlacedCounter(placedCounter: number) {
+        this._placedCounter.next(placedCounter);
     }
 
     setSelectedCharackter(selectedCharackter: Charackter) {
@@ -56,6 +61,10 @@ export class TicTacToeService {
         return this._board.asObservable();
     }
 
+    get PlacedCounter$() {
+        return this._placedCounter.asObservable();
+    }
+
     get selectedCharackter$() {
         return this._selectedCharackter.asObservable();
     }
@@ -63,36 +72,40 @@ export class TicTacToeService {
     startGame() {
         let charackters1: Charackter[] = [];
         let charackters2: Charackter[] = [];
-        for(let i = 0; i < 9; i++) {
-            if(i < 3) {
+        for(let i = 0; i < 6; i++) {
+            if(i < 2) {
                 charackters1.push({
                     id: '' + 1 + '-' + i,
                     icon: GameIcon.player1, 
                     size: CharackterSize.small, 
                     color: GameColor.player1,
-                    available: true
+                    available: true,
+                    cssSize: iconSize.small
                 });
                 charackters2.push({
                     id: '' + 2 + '-' + i,
                     icon: GameIcon.player2, 
                     size: CharackterSize.small, 
                     color: GameColor.player2,
-                    available: true
+                    available: true,
+                    cssSize: iconSize.small
                 });
-            } else if(i > 5) {
+            } else if(i > 3) {
                 charackters1.push({
                     id: '' + 1 + '-' + i,
                     icon: GameIcon.player1, 
                     size: CharackterSize.big, 
                     color: GameColor.player1,
-                    available: true
+                    available: true,
+                    cssSize: iconSize.big
                 });
                 charackters2.push({
                     id: '' + 2 + '-' + i,
                     icon: GameIcon.player2, 
                     size: CharackterSize.big, 
                     color: GameColor.player2,
-                    available: true
+                    available: true,
+                    cssSize: iconSize.big
                 });
             } else {
                 charackters1.push({
@@ -100,14 +113,16 @@ export class TicTacToeService {
                     icon: GameIcon.player1, 
                     size: CharackterSize.middle, 
                     color: GameColor.player1,
-                    available: true
+                    available: true,
+                    cssSize: iconSize.middle
                 });
                 charackters2.push({
                     id: '' + 2 + '-' + i,
                     icon: GameIcon.player2, 
                     size: CharackterSize.middle, 
                     color: GameColor.player2,
-                    available: true
+                    available: true,
+                    cssSize: iconSize.middle
                 });
             }
         }
@@ -118,17 +133,18 @@ export class TicTacToeService {
                 icon: '', 
                 size: '',
                 color: '',
-                available: true
+                available: true, 
+                cssSize: ''
             });
         }
         this.setPlayer1({color: GameColor.player1, charackters: charackters1});        
         this.setPlayer2({color: GameColor.player2, charackters: charackters2});
-        this.setSelectedCharackter({id: '', icon: '', size: '', color: '', available: true});
+        this.setSelectedCharackter({id: '', icon: '', size: '', color: '', available: true, cssSize: ''});
         this.setBoard(board);
         this.setTurn(1);
     }
 
-    onWin(winner: number) {
+    onGameEnded(winner: number) {
         let dialogRef = this.dialog.open(WinnerDialogComponent);
         let instance = dialogRef.componentInstance;
         instance.winner = winner; 
