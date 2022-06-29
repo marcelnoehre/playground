@@ -43,6 +43,10 @@ export class TicTacToeComponent implements OnInit {
     this.ticTacToe.startGame();
   }
 
+  restartGame() {
+    this.ticTacToe.startGame();
+  }
+
   selectCharackter(player: number, charackter: Charackter) {
     if(this.turn == player && charackter.available) {
       this.ticTacToe.setSelectedCharackter(charackter);

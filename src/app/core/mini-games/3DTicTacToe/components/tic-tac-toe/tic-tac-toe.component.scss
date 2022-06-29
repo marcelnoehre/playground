@@ -18,7 +18,15 @@ a {
     font-size: 5vh;
 }
 
-.back-dark>a {
+.restart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 2vh;
+    font-size: 5vh;
+}
+
+.dark>a {
     color: black !important;
 }
 

@@ -1,5 +1,8 @@
 <div class="container">
-    <div class="back" [ngClass]="turn == 1 ? 'back-dark' : ''">
+    <div class="restart" [ngClass]="turn == 1 ? 'dark' : ''">
+        <a class="fa fa-refresh" (click)="restartGame()"></a>
+    </div>
+    <div class="back" [ngClass]="turn == 1 ? 'dark' : ''">
         <a class="fa fa-times" routerLink="/mini-games"></a>
     </div>
     <div class="player-1" [style]="'color: ' + player1.color" [ngClass]="turn == 1 ? 'turn' : ''">
