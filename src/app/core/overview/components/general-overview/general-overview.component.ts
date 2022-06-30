@@ -20,6 +20,12 @@ export class GeneralOverviewComponent implements OnInit {
       icon: 'fa fa-gamepad',
       color: Color.orange,
       route: 'mini-games/'
+    },
+    {
+      header: 'Animations',
+      icon: 'fa fa-video',
+      color: Color.green,
+      route: 'animations/'
     }
   ]; 
 
