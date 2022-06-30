@@ -11,6 +11,7 @@ import { MiniGamesComponent } from './core/overview/components/mini-games/mini-g
 import { TicTacToeComponent } from './core/mini-games/3DTicTacToe/components/tic-tac-toe/tic-tac-toe.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WinnerDialogComponent } from './core/mini-games/3DTicTacToe/components/winner-dialog/winner-dialog.component';
+import { AnimationsComponent } from './core/overview/components/animations/animations.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { WinnerDialogComponent } from './core/mini-games/3DTicTacToe/components/
     ThreeDimensionalCssComponent,
     MiniGamesComponent,
     TicTacToeComponent,
-    WinnerDialogComponent
+    WinnerDialogComponent,
+    AnimationsComponent
   ],
   imports: [
     BrowserModule,
